@@ -1,1 +1,3 @@
-# Mobile-duo-2
+# Mobile-duo
+
+Prática de interface.
