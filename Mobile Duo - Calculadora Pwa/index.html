@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <title>Calc Incomum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <meta name="description" content="CalcPWA">
+    <meta name="application-name" content="Calc PWA">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileImage" content="assets/icons/144.png">
+    <meta name="msapplication-TileColor" content="#31506F">
+    <meta name="theme-color" content="#4D5360" />
+    <link rel="shortcut icon" sizes="192x192" href="assets/icons/192.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA Teste">
+    <link rel="apple-touch-icon" href="assets/icons/144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/167.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" type="image/png" href="assets/icons/144.png">
+
+    <style>
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+
+      #logo{
+        padding-top: 85px;
+        padding-bottom: 10px;
+      }
+
+
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s;
+        animation: fadein 0.5s;
+      }
+      .texto {
+        padding: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: justify;
+        text-align: center;
+      }
+      #titulo_texto{
+        text-align: center;
+
+      }
+
+      #footer {
+        position: page;
+        margin-top: auto;
+        width: 100%;
+        background-color: whitesmoke;
+        color: #000000;
+        padding-top: 15px;
+        padding-bottom: 2px;
+        font-size: 18px;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+
+
+      }
+      #imagem{
+        text-align: center;
+        max-width: 300px;
+        max-height: 300px;
+      }
+
+      #botaoimg{
+        border: white;
+        background-color: white;
+      }
+    </style>
+  
+  </head>
+
+  <body>
+
+    <div id="logo" class="jumbotron text-center">
+      <h1 alt="Título/Logo do site">Mobile Duo</h1>
+      <p>Projeto PWA</p>
+        </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+       <a class="navbar-brand" href="#"></a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+           <li class="nav-item active">
+             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="calc.html">Calculadora</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="contato.html">Contato</a>
+           </li>
+         </ul>
+       </div>
+    </nav>
+
+    <div class="texto">
+      <h2 id="titulo_texto" alt="Título do parágrafo">Projeto da disciplina Desenvolvimento Mobile</h2>
+      <p alt="Texto que fala sobre o objetivo de desenvolvimento do site.">
+         Estamos implementando PWA em um site, de forma que o usuário possa baixá-lo em seu smatphone, podendo usar como um aplicativo. A ideia do site/app é apresentar uma calculadora comum. <br>Espero que faça um bom proveito!
+      </p>
+      <p alt="A dupla na qual ajudou no desenvolvimento e o link para o GitHub dela.">
+        Colab com: <a href="https://github.com/Manda-vit">Manda-vit</a>
+      </p>
+      <p alt="Minha despedida e link para meu GitHub.">
+        Ass:<a href="https://github.com/MariV24"> MaVi.</a>
+      </p>
+      <button id="botaoimg" onclick="vibrateSimple()">
+        <img id ="imagem" src="./assets/icons/1024.png" alt="Botões de subtração, multiplicação, divisão e adição de uma calculadora ilustradas em cores azul e amarelo, no formato de um losango.">
+        <small id="imgEGG" class="form-text text-muted">Tente tocar na imagem.</small>
+      </button>
+    </div>
+
+
+    <div id="snackbar">Uma nova versão está disponível! Clique <a id="reload">AQUI</a> para atualizar.</div>
+
+
+    <div id="footer" alt="Rodapé com agradecimento.">
+      <ul>
+        <p> Obrigada pela presença!</p>
+      </ul>
+    </div>
+  
+    <script type="module">
+    let newWorker;
+    function showUpdateBar() {
+      let snackbar = document.getElementById('snackbar');
+      snackbar.className = 'show';
+    }
+    // The click event on the pop up notification
+    document.getElementById('reload').addEventListener('click', function () {
+      newWorker.postMessage({ action: 'skipWaiting' });
+    });
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+        // A wild service worker has appeared in reg.installing!
+        newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+        // Has network.state changed?
+           switch (newWorker.state) {
+           case 'installed':
+             if (navigator.serviceWorker.controller) {
+             // new update available
+               showUpdateBar();
+             }
+            // No update available
+           break;
+           }
+        });
+      });
+    });
+      let refreshing;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (refreshing) return;
+        window.location.reload();
+        refreshing = true;
+      })
+    }
+    // Easteregg Imagem
+    function vibrateSimple() {
+      navigator.vibrate(300);
+    }
+    </script>
+
+  </body>
+
+</html>

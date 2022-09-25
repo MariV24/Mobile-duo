@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculadora</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <meta name="description" content="PWA-teste">
+
+        <link rel="manifest" href="manifest.json">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="msapplication-TileImage" content="assets/img/icon_144.png">
+        <meta name="msapplication-TileColor" content="#31506F">
+        <meta name="theme-color" content="#4D5360" />
+        <link rel="shortcut icon" sizes="192x192" href="assets/img/icon_192.png">
+        <link rel="shortcut icon" sizes="128x128" href="assets/img/icon_128.png">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="PWA Teste">
+        <link rel="apple-touch-icon" href="assets/img/icon_144.png">
+        <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/img/icon_152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon_180.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="assets/img/icon_167.png">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href="assets/img/ios/ipad.png" sizes="3200x4267" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/ipadpro.png" sizes="3475x4633" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/ipadpro2.png" sizes="4267x5692" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/Iphone6Plus.png" sizes="2588x4600" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/Iphone7.png" sizes="1563x2779" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/IphoneSE-05.png" sizes="1333x2367" rel="apple-touch-startup-image" />
+        <link href="assets/img/ios/IphoneX-05.png" sizes="2344x5075" rel="apple-touch-startup-image" />
+
+        <link rel="icon" type="image/png" href="assets/img/icon_144.png">
+
+        <style>
+            #snackbar {
+                visibility: hidden;
+                min-width: 250px;
+                margin-left: -125px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 2px;
+                padding: 16px;
+                position: fixed;
+                z-index: 1;
+                left: 50%;
+                bottom: 30px;
+            }
+
+            #logo{
+                padding-top: 85px;
+                padding-bottom: 10px;
+            }
+
+
+            #snackbar.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s;
+                animation: fadein 0.5s;
+            }
+
+            #footer {
+                position: page;
+                margin-top: auto;
+                width: 100%;
+                background-color: whitesmoke;
+                color: #000000;
+                text-align: center;
+                padding-top: 10px;
+                font-size: 18px;
+                bottom: 0;
+                left: 0;
+
+            }
+
+            #botaoCompartilha{
+                border-radius: 15px;
+                padding: 3px;
+                box-shadow: #343434 1px 1px 3px 2px;
+                border-color: #969696;
+            }
+
+
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            .fundo{
+                height: 100vh;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+
+            .calculadora{
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.8);
+                top: 85%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border-radius: 15px;
+                padding: 15px;
+            }
+
+            .botao{
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                cursor: pointer;
+                margin: 3px;
+                background-color: rgb(31, 31, 31);
+                border: none;
+                color: white;
+            }
+
+            .botao:hover{
+                background-color: black;
+            }
+
+            #resultado{
+                width: 207px;
+                background-color: white;
+                height: 30px;
+                margin: 5px;
+                font-size: 25px;
+                color: black;
+                text-align: right;
+                padding: .5px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="logo" class="jumbotron text-center">
+            <h1 alt="Título/Logo do site">Mobile Duo</h1>
+            <p>Projeto PWA</p>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="calc.html">Calculadora<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-center">
+            <p><br>
+                <button id="botaoCompartilha" onclick="share()">Compartilhe nossa Calculadora<br>com o <b>Web Share!</b></button>
+            </p>
+        </div>
+
+        <!-- Referencia do: https://programadoresdepre.com.br/como-criar-uma-calculadora-com-html-css-e-javascript/ -->
+        <div class="fundo">
+            <div class="calculadora">
+                <h2>Calculadora</h2>
+                <p id="resultado"></p>
+                <table>
+                    <tr>
+                        <td><button class="botao" onclick="clean()">C</td>
+                        <td><button class="botao" onclick="back()"><</td>
+                        <td><button class="botao" onclick="insert('/')">/</button></td>
+                        <td><button class="botao" onclick="insert('*')">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botao" onclick="insert('7')">7</button></td>
+                        <td><button class="botao" onclick="insert('8')">8</button></td>
+                        <td><button class="botao" onclick="insert('9')">9</button></td>
+                        <td><button class="botao" onclick="insert('-')">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botao" onclick="insert('4')">4</button></td>
+                        <td><button class="botao" onclick="insert('5')">5</button></td>
+                        <td><button class="botao" onclick="insert('6')">6</button></td>
+                        <td><button class="botao" onclick="insert('+')">+</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="botao" onclick="insert('1')">1</button></td>
+                        <td><button class="botao" onclick="insert('2')">2</button></td>
+                        <td><button class="botao" onclick="insert('3')">3</button></td>
+                        <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td>
+                        <td><button class="botao" onclick="insert('.')">.</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="footer" class="fixed-bottom" alt="Rodapé com agradecimento.">
+            <ul class="copyright">
+                <p> Obrigada pela presença!</p>
+            </ul>
+        </div>
+
+        <script>
+            let newWorker;
+            function showUpdateBar() {
+                let snackbar = document.getElementById('snackbar');
+                snackbar.className = 'show';
+            }
+            // The click event on the pop up notification
+            document.getElementById('reload').addEventListener('click', function () {
+                newWorker.postMessage({ action: 'skipWaiting' });
+            });
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                    reg.addEventListener('updatefound', () => {
+                        // A wild service worker has appeared in reg.installing!
+                        newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            // Has network.state changed?
+                            switch (newWorker.state) {
+                                case 'installed':
+                                    if (navigator.serviceWorker.controller) {
+                                        // new update available
+                                        showUpdateBar();
+                                    }
+                                    // No update available
+                                    break;
+                            }
+                        });
+                    });
+                });
+                let refreshing;
+                navigator.serviceWorker.addEventListener('controllerchange', function () {
+                    if (refreshing) return;
+                    window.location.reload();
+                    refreshing = true;
+                });
+            }
+
+
+            // Calculadora Script
+            function insert(num)
+            {
+                var numero = document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML = numero + num;
+            }
+            function clean()
+            {
+                document.getElementById('resultado').innerHTML = "";
+            }
+            function back()
+            {
+                var resultado = document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+            }
+            function calcular()
+            {
+                var resultado = document.getElementById('resultado').innerHTML;
+                if(resultado)
+                {
+                    document.getElementById('resultado').innerHTML = eval(resultado);
+                }
+                else
+                {
+                    document.getElementById('resultado').innerHTML = "Nada..."
+                }
+            }
+
+            // Web Share
+            function share() {
+                if (!("Compartilhar" in navigator)) {
+                    alert('Web Share API não suportada.');
+                    return;
+                }
+
+                navigator.share({
+                    title: 'Mobile Duo: Calculadora PWA',
+                    text: 'Venha se experimentar nosso projeto e nos ajudar a testar!',
+                    url: 'https://calculacalc24.netlify.app'
+                })
+                    .then(() => console.log('Compartilhado com sucesso!'))
+                    .catch(error => console.log('Erro em compartilhar:', error));
+            }
+            function intent() {
+                if (!("Intent" in window)) {
+                    alert('Web Intents API not supported.');
+                    return;
+                }
+
+                var intent = new Intent('http://webintents.org/share',
+                    'text/uri-list',
+                    'https://whatwebcando.today');
+                navigator.startActivity(intent, function () {
+                    console.log('Successful share')
+                }, function (error) {
+                    console.log('Error sharing:', error);
+                });
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,149 @@
+{
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/search?q=calculadora&c=apps&androidId=115598875121471378130",
+      "id": "Calculadora"
+    }
+  ],
+
+  "screenshots" : [
+    {
+      "src": "screenshot1.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "Homescreen of Awesome App"
+    }
+  ],
+
+  "shortcuts" : [
+    {
+      "name": "Home Mobile Duo",
+      "url": "/index.html",
+      "description": "Página inicial do site"
+    },
+    {
+      "name": "Calculadora",
+      "url": "/calc.html"
+    },
+    {
+      "name": "Contate-me",
+      "url": "/contato.html"
+    }
+  ],
+
+  "share_target": {
+    "action": "/share-target/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "Mobile Duo: Calculadora PWA",
+      "text": "Venha se experimentar nosso projeto e nos ajudar a testar!",
+      "url": "https://calculacalc24.netlify.app"
+    }
+  },
+  "name": "Mobile-Duo: Calculadora PWA",
+  "short_name": "Calc PWA",
+  "icons": [
+    {
+      "src": "assets/icons/29.png",
+      "sizes": "29x29",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/40.png",
+      "sizes": "40x40",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/57.png",
+      "sizes": "57x57",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/58.png",
+      "sizes": "58x58",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/60.png",
+      "sizes": "60x60",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/80.png",
+      "sizes": "80x80",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/87.png",
+      "sizes": "87x87",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/114.png",
+      "sizes": "114x114",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/120.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/167.png",
+      "sizes": "167x167",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/index.html",
+  "dir": "ltr",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "whitesmoke",
+  "theme_color": "#000000",
+  "description": "Site de Calculadora",
+  "categories": ["matemática", "educação", "ensino"]
+}
